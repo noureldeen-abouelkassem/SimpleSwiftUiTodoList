@@ -32,8 +32,8 @@
 		07D779752DB649CA00838D33 = {
 			isa = PBXGroup;
 			children = (
-				07D779802DB649CA00838D33 /* TodoList */,
 				07D7797F2DB649CA00838D33 /* Products */,
+				07D779802DB649CA00838D33 /* TodoList */,
 			);
 			sourceTree = "<group>";
 		};
