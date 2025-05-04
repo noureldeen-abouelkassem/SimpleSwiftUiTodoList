@@ -12,6 +12,7 @@ struct NoItemsView: View {
     @State var animate: Bool = false
     let secondaryAccentColor: Color = Color("SecondaryAccentColor")
     
+    // MARK: First Section
     var body: some View {
         ScrollView {
             VStack(spacing: 10) {
@@ -47,6 +48,7 @@ struct NoItemsView: View {
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
+    // MARK: Second Section
     func addAnimation() {
         guard !animate else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -58,7 +60,7 @@ struct NoItemsView: View {
 }
 
 #Preview {
-    NavigationView {
+    NavigationStack {
         NoItemsView()
             .navigationTitle(Text("No Items"))
     }

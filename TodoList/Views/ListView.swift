@@ -12,7 +12,7 @@ struct ListView: View {
     @EnvironmentObject var viewModel : ListViewModel
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 if viewModel.items.isEmpty {
                     NoItemsView()
@@ -43,7 +43,7 @@ struct ListView: View {
 }
 
 #Preview {
-    NavigationView {
+    NavigationStack {
         ListView()
     }.environmentObject(ListViewModel())
 }
