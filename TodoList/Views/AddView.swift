@@ -10,7 +10,7 @@ import SwiftUI
 struct AddView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var viewModel: ListViewModel
+    @StateObject var viewModel: ListViewModel
     @State var textFieldText: String = ""
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
@@ -70,6 +70,6 @@ struct AddView: View {
 
 #Preview {
     NavigationStack {
-        AddView()
-    }.environmentObject(ListViewModel())
+        AddView(viewModel: ListViewModel())
+    }
 }

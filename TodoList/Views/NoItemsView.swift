@@ -10,6 +10,7 @@ import SwiftUI
 struct NoItemsView: View {
     
     @State var animate: Bool = false
+    @StateObject var viewModel: ListViewModel
     let secondaryAccentColor: Color = Color("SecondaryAccentColor")
     
     // MARK: First Section
@@ -22,7 +23,7 @@ struct NoItemsView: View {
                 Text("Would like to organize your day and not miss a thing? Add an item below!")
                     .padding(.bottom, 20)
                 NavigationLink(
-                    destination: AddView(),
+                    destination: AddView(viewModel: viewModel),
                     label: {
                         Text("Add something new... 📝")
                             .foregroundColor(.white)
@@ -61,7 +62,7 @@ struct NoItemsView: View {
 
 #Preview {
     NavigationStack {
-        NoItemsView()
+        NoItemsView(viewModel: ListViewModel())
             .navigationTitle(Text("No Items"))
     }
 }

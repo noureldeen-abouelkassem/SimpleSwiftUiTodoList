@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ListView: View {
     
-    @EnvironmentObject var viewModel : ListViewModel
+    @StateObject var viewModel : ListViewModel
     
     var body: some View {
         NavigationStack {
             ZStack {
                 if viewModel.items.isEmpty {
-                    NoItemsView()
+                    NoItemsView(viewModel: viewModel)
                         .transition(AnyTransition.opacity
                             .animation(.easeIn))
                 } else {
@@ -35,7 +35,7 @@ struct ListView: View {
                 .navigationBarItems(
                     leading: EditButton(),
                     trailing:
-                        NavigationLink("Add", destination: AddView())
+                        NavigationLink("Add", destination: AddView(viewModel: viewModel))
                 )
                 .listStyle(PlainListStyle())
         }
@@ -44,6 +44,6 @@ struct ListView: View {
 
 #Preview {
     NavigationStack {
-        ListView()
-    }.environmentObject(ListViewModel())
+        ListView(viewModel: ListViewModel())
+    }
 }
